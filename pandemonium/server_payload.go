@@ -35,7 +35,9 @@ type Authenticated struct {
 	Users []models.User `json:"users"`
 }
 
-type UserCreate models.UserCreate
+type UserCreate models.User
+
+type UserUpdate models.User
 
 type PresenceUpdate struct {
 	UserId int           `json:"user_id"`
