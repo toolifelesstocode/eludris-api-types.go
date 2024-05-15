@@ -9,6 +9,7 @@ const (
 	RatelimitOp      OpcodeType = "RATE_LIMIT"
 	HelloOp          OpcodeType = "HELLO"
 	AuthenticatedOp  OpcodeType = "AUTHENTICATED"
+	UserCreateOP     OpcodeType = "USER_CREATE"
 	UserUpdateOP     OpcodeType = "USER_UPDATE"
 	PresenceUpdateOP OpcodeType = "PRESENCE_UPDATE"
 	MessageCreateOp  OpcodeType = "MESSAGE_CREATE"
