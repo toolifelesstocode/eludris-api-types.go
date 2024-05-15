@@ -5,10 +5,14 @@ import (
 )
 
 const (
-	PongOp          OpcodeType = "PONG"
-	RatelimitOp     OpcodeType = "RATE_LIMIT"
-	HelloOp         OpcodeType = "HELLO"
-	MessageCreateOp OpcodeType = "MESSAGE_CREATE"
+	PongOp           OpcodeType = "PONG"
+	RatelimitOp      OpcodeType = "RATE_LIMIT"
+	HelloOp          OpcodeType = "HELLO"
+	AuthenticatedOp  OpcodeType = "AUTHENTICATED"
+	UserCreateOp     OpcodeType = "USER_CREATE"
+	UserUpdateOp     OpcodeType = "USER_UPDATE"
+	PresenceUpdateOp OpcodeType = "PRESENCE_UPDATE"
+	MessageCreateOp  OpcodeType = "MESSAGE_CREATE"
 )
 
 type Ratelimit struct {
@@ -24,6 +28,21 @@ type Hello struct {
 	InstanceInfo models.InstanceInfo `json:"instance_info"`
 	// The pandemonium rate limit information for the connected Eludris instance.
 	RateLimit models.RateLimitConf `json:"rate_limit"`
+}
+
+type Authenticated struct {
+	User models.User `json:"user"`
+	// The currently online users who are relevant to the connector.
+	Users []models.User `json:"users"`
+}
+
+type UserCreate models.User
+
+type UserUpdate models.User
+
+type PresenceUpdate struct {
+	UserId int           `json:"user_id"`
+	Status models.Status `json:"status"`
 }
 
 type MessageCreate models.Message
